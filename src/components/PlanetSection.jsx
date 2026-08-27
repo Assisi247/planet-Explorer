@@ -1,30 +1,7 @@
-import { useEffect, useState } from 'react'
 import PlanetCard from './PlanetCard'
+import planets from './planets'
 
 function PlanetSection() {
-  const [planets, setPlanets] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState('')
-
-  useEffect(() => {
-    fetch('https://example.com/api/planets')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch planet data')
-        }
-
-        return response.json()
-      })
-      .then((data) => {
-        setPlanets(data)
-        setLoading(false)
-      })
-      .catch(() => {
-        setError('Unable to load planet data.')
-        setLoading(false)
-      })
-  }, [])
-
   return (
     <section id="planets" className="planet-section">
       <div className="section-heading">
@@ -35,17 +12,11 @@ function PlanetSection() {
         </span>
       </div>
 
-      {loading && <p className="status-message">Loading planets...</p>}
-
-      {error && <p className="error-message">{error}</p>}
-
-      {!loading && !error && (
-        <div className="planet-grid">
-          {planets.map((planet) => (
-            <PlanetCard key={planet.name} planet={planet} />
-          ))}
-        </div>
-      )}
+      <div className="planet-grid">
+        {planets.map((planet) => (
+          <PlanetCard key={planet.name} planet={planet} />
+        ))}
+      </div>
     </section>
   )
 }
