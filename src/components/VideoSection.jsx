@@ -8,7 +8,7 @@ function VideoSection() {
         loop
         playsInline
       >
-        <source src="/planet-video.mp4" type="video/mp4" />
+        <source src="/planet-video-final.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
