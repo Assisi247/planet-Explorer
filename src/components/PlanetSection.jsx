@@ -1,5 +1,6 @@
+// planet Explorer - updated version
 import PlanetCard from './PlanetCard'
-import planets from './planets'
+import Planets from './Planets'
 
 function PlanetSection() {
   return (
@@ -13,7 +14,7 @@ function PlanetSection() {
       </div>
 
       <div className="planet-grid">
-        {planets.map((planet) => (
+        {Planets.map((planet) => (
           <PlanetCard key={planet.name} planet={planet} />
         ))}
       </div>
